@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.example.nasaapp.ui.fragment_main.FragmentMain
+import fragment.FragmentMain
 
 
 class MainActivity : AppCompatActivity() {
