@@ -14,7 +14,7 @@
 
                 <fragment
                     android:id="@+id/fragment_picture_of_the_day"
-                    android:name="fragments.fragment.FragmentPictureOfTheDay"
+                    android:name="com.example.nasaapp.ui.fragments.fragment.FragmentPictureOfTheDay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
 
                 <fragment
                     android:id="@+id/favorite_mars_photo"
-                    android:name="fragments.fragment.FragmentFavoritePhoto"
+                    android:name="com.example.nasaapp.ui.fragments.fragment.FragmentFavoritePhoto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
 
                 <fragment
                     android:id="@+id/new_mars_photo"
-                    android:name="new_mars_photo.NewMarsPhoto"
+                    android:name="com.example.nasaapp.ui.fragments.fragment.NewMarsPhoto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 

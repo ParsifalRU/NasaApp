@@ -1,4 +1,4 @@
-package fragments.fragment
+package com.example.nasaapp.ui.fragments.fragment
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.nasaapp.R
 import com.example.nasaapp.databinding.FragmentPictureOfTheDayBinding
-import fragments.view_model.ViewModelPictureOfTheDay
+import com.example.nasaapp.ui.fragments.view_model.ViewModelPictureOfTheDay
 
 
 class FragmentPictureOfTheDay() : Fragment() {

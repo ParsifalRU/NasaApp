@@ -1,4 +1,4 @@
-package fragments.fragment
+package com.example.nasaapp.ui.fragments.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

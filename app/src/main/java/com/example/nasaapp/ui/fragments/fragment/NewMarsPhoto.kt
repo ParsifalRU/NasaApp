@@ -1,4 +1,4 @@
-package new_mars_photo
+package com.example.nasaapp.ui.fragments.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
