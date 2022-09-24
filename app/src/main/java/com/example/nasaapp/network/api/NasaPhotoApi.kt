@@ -1,9 +1,9 @@
 package com.example.nasaapp.network.api
 
 import com.example.nasaapp.network.models.ModelPictOfTheDay
+import com.example.nasaapp.network.models.RoverModel
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import io.reactivex.rxjava3.core.Observable
-import model_opportunity.Opportunity_model
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -56,40 +56,8 @@ interface NasaPhotoApi {
 
     ) : Observable<List<ModelPictOfTheDay>>
 
-
     @GET(CURIOSITY_ROVER)
-    suspend fun getCuriosityMarsPhotosFromEarthDate(
-        @Query("page")
-        page: Int = 1,
-
-        @Query("earth_date")
-        earthDate: String = "2006-11-17",
-
-        @Query("camera")
-        camera: String = "FHAZ",
-
-        @Query("api_key")
-        APIKey: String = API_KEY
-    ): Observable<List<Opportunity_model>>
-
-
-    @GET(OPPORTUNITY_ROVER)
-    suspend fun getOpportunityMarsPhotosFromEarthDate(
-        @Query("page")
-        page: Int = 1,
-
-        @Query("earth_date")
-        earthDate: String = "2006-11-17",
-
-        @Query("camera")
-        camera: String = "FHAZ",
-
-        @Query("api_key")
-        APIKey: String = API_KEY
-    ): Observable<List<Opportunity_model>>
-
-    @GET(SPIRIT_ROVER)
-    suspend fun getSpiritMarsPhotosFromMarsSol(
+    fun getCuriosityMarsPhotosFromMarsSol(
         @Query("page")
         page: Int = 1,
 
@@ -101,10 +69,10 @@ interface NasaPhotoApi {
 
         @Query("api_key")
         APIKey: String = API_KEY
-    ): Observable<List<Opportunity_model>>
+    ): Observable<List<RoverModel>>
 
-    @GET(SPIRIT_ROVER)
-    suspend fun getSpiritMarsPhotosFromEarthDate(
+    @GET(CURIOSITY_ROVER)
+    fun getCuriosityMarsPhotosFromEarthDate(
         @Query("page")
         page: Int = 1,
 
@@ -116,7 +84,98 @@ interface NasaPhotoApi {
 
         @Query("api_key")
         APIKey: String = API_KEY
-    ): Observable<List<Opportunity_model>>
+    ): Observable<List<RoverModel>>
+
+
+    @GET(OPPORTUNITY_ROVER)
+    fun getOpportunityMarsPhotosFromEarthDate(
+        @Query("page")
+        page: Int = 1,
+
+        @Query("earth_date")
+        earthDate: String = "2006-11-17",
+
+        @Query("camera")
+        camera: String = "FHAZ",
+
+        @Query("api_key")
+        APIKey: String = API_KEY
+    ): Observable<List<RoverModel>>
+
+    @GET(OPPORTUNITY_ROVER)
+    fun getOpportunityMarsPhotosFromMarsSol(
+        @Query("page")
+        page: Int = 1,
+
+        @Query("sol")
+        sol: Int = 1000,
+
+        @Query("camera")
+        camera: String = "FHAZ",
+
+        @Query("api_key")
+        APIKey: String = API_KEY
+    ): Observable<List<RoverModel>>
+
+    @GET(SPIRIT_ROVER)
+    fun getSpiritMarsPhotosFromMarsSol(
+        @Query("page")
+        page: Int = 1,
+
+        @Query("sol")
+        sol: Int = 1000,
+
+        @Query("camera")
+        camera: String = "FHAZ",
+
+        @Query("api_key")
+        APIKey: String = API_KEY
+    ): Observable<List<RoverModel>>
+
+    @GET(SPIRIT_ROVER)
+    fun getSpiritMarsPhotosFromEarthDate(
+        @Query("sol")
+        sol: Int = 1000,
+
+        @Query("page")
+        page: Int = 1,
+
+        @Query("earth_date")
+        earthDate: String = "2015-06-03",
+
+        @Query("camera")
+        camera: String = "FHAZ",
+
+        @Query("api_key")
+        APIKey: String = API_KEY
+    ): Observable<List<RoverModel>>
+
+    @GET(SPIRIT_ROVER)
+    fun getSpiritMarsPhotosFromEarthDate(
+        @Query("page")
+        page: Int = 1,
+
+        @Query("earth_date")
+        earthDate: String = "2006-11-17",
+
+        @Query("camera")
+        camera: String = "FHAZ",
+
+        @Query("api_key")
+        APIKey: String = API_KEY
+    ): Observable<List<RoverModel>>
+
+    @GET(CURIOSITY_ROVER)
+    fun getLastMarsPhotos(
+        @Query("page")
+        page: Int = 1,
+
+        @Query("sol")
+        sol: Int = 1000,
+
+        @Query("api_key")
+        APIKey: String = API_KEY
+    ): Observable<List<RoverModel>>
 
 }
 
