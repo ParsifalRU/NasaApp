@@ -15,32 +15,26 @@ class ViewModelNewPhoto: ViewModel() {
         getNewPhotos()
     }
 
-    private fun getNewPhotos() {
-
-        retrofitCreated.let {
+   fun getNewPhotos() {
 
             retrofitCreated.getLastMarsPhotos()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
 
-                    Log.d("TAG", "GetNewPhoto new data1 $it")
-                    val response = it.size to arrayOf(String)
-                    Log.d("TAG", "getNewPhoto ${response.first}")
-                    livedata.value = it.count().toString()
+                    val response = it to arrayOf(String)
+                    livedata.value = response.first.toString()
 
                     /*val bundle = Bundle()
                     bundle.putString("url", response.first[0].imageSrc)
                     FragmentPictureOfTheDay.newInstance(arg1 = bundle)
                     livedata.value = response.first[0].imageSrc*/
 
-
-                    /* downloadImage(dt.first[0].url, bindings.imageView)*/
                 }, {
                     Log.d("TAG", "Exception getNewPhoto ${livedata.value} ")
-
                 })
 
-        }
-    }
+
+            }
+
 }

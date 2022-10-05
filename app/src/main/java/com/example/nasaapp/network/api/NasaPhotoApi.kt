@@ -23,7 +23,6 @@ import java.util.*
     private const val OPPORTUNITY_ROVER = BASE_ROVER + "opportunity/photos"
     private const val SPIRIT_ROVER = BASE_ROVER + "spirit/photos"
 
-
     val httpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
     val okHttpClient = OkHttpClient.Builder()
@@ -37,7 +36,7 @@ import java.util.*
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val retrofitCreated: NasaPhotoApi = retrofit.create(NasaPhotoApi::class.java)
+   val retrofitCreated: NasaPhotoApi = retrofit.create(NasaPhotoApi::class.java)
 
     val currentDate: Date = Date()
     val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
@@ -51,8 +50,10 @@ interface NasaPhotoApi {
         @Query("api_key")
         ApiKey :String = API_KEY,
 
-        @Query("start_date")
-        StartDate : String = dateText
+        @Query("count")
+        count: Int = 1
+        /*@Query("start_date")
+        StartDate : String = dateText*/
 
     ) : Observable<List<ModelPictOfTheDay>>
 
@@ -178,6 +179,5 @@ interface NasaPhotoApi {
     ): Observable<List<RoverModel>>
 
 }
-
 
 

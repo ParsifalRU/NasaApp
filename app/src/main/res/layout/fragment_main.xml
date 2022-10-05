@@ -34,7 +34,7 @@
 
                 <fragment
                     android:id="@+id/new_mars_photo"
-                    android:name="com.example.nasaapp.ui.fragments.fragment.NewMarsPhoto"
+                    android:name="com.example.nasaapp.ui.fragments.fragment.FragmentNewMarsPhoto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 

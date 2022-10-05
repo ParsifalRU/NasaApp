@@ -7,19 +7,19 @@ import androidx.lifecycle.ViewModel
 import com.example.nasaapp.network.api.retrofitCreated
 import com.example.nasaapp.ui.fragments.fragment.FragmentPictureOfTheDay
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 class ViewModelPictureOfTheDay() : ViewModel() {
 
+    private val compositeDisposable = CompositeDisposable()
     var livedata = MutableLiveData<String>()
 
     init {
         getMarsPhotos()
     }
 
-    private fun getMarsPhotos() {
-
-        retrofitCreated.let {
+    fun getMarsPhotos() {
 
             retrofitCreated.getPhotos()
                 .subscribeOn(Schedulers.newThread())
@@ -34,15 +34,15 @@ class ViewModelPictureOfTheDay() : ViewModel() {
                         FragmentPictureOfTheDay.newInstance(arg1 = bundle)
                         livedata.value = response.first[0].url
 
-
-                    /* downloadImage(dt.first[0].url, bindings.imageView)*/
                 }, {
                     Log.d("TAG", "Exception GetMarsPhoto ${livedata.value} ")
 
-                })
+                }
+                )
 
-        }
+
+
+
     }
-
 
 }

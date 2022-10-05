@@ -16,8 +16,6 @@ class FragmentPictureOfTheDay() : Fragment() {
 
     lateinit var binding: FragmentPictureOfTheDayBinding
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,14 +31,12 @@ class FragmentPictureOfTheDay() : Fragment() {
     }
 
     private fun downloadImage(url:String){
-
             Glide
                 .with(this)
-                .load(url /*arguments?.get("url")*/)
+                .load(url)
                 .centerCrop()
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(binding.imageView)
-        Log.d("TAG1","${arguments?.get("url")}")
 
     }
 

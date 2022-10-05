@@ -9,7 +9,6 @@ data class RoverModel(
     val rover: List<RoverVO>
 
 )
-
     data class RoverVO(
 
         val id: Int ,
