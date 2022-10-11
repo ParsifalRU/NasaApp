@@ -9,32 +9,26 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 class ViewModelNewPhoto: ViewModel() {
 
-    var livedata = MutableLiveData<String>()
+   var livedata = MutableLiveData<String>()
 
-    init {
+   init {
         getNewPhotos()
     }
 
    fun getNewPhotos() {
-
             retrofitCreated.getLastMarsPhotos()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
 
                     val response = it to arrayOf(String)
-                    livedata.value = response.first.toString()
-
-                    /*val bundle = Bundle()
-                    bundle.putString("url", response.first[0].imageSrc)
-                    FragmentPictureOfTheDay.newInstance(arg1 = bundle)
-                    livedata.value = response.first[0].imageSrc*/
+                    Log.d("TAG", " getNewPhoto ${response.toString()}")
+                    livedata.value = response.first.photos[0].id.toString()
 
                 }, {
-                    Log.d("TAG", "Exception getNewPhoto ${livedata.value} ")
-                })
-
-
+                    Log.e("Tag", it.message.toString())
+                    Log.d("TAG", "Exception getNewPhoto ${livedata.value}")
+                }
+                )
             }
-
 }

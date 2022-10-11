@@ -1,16 +1,19 @@
 package com.example.nasaapp.network.models
 
-data class RoverModel(
+data class PhotosVO(
+    val photos: List<MarsPhotoVO>
+)
+
+data class MarsPhotoVO(
     val id: Int,
     val sol: Int,
-    val camera: List<CameraVO>,
+    val camera: CameraVO,
     val img_src : String,
     val earth_date: String,
-    val rover: List<RoverVO>
+    val rover: RoverVO
 
 )
     data class RoverVO(
-
         val id: Int ,
         val name: String ,
         val landing_date: String ,

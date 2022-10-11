@@ -20,14 +20,14 @@ class FragmentPictureOfTheDay() : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = FragmentPictureOfTheDayBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         ViewModelPictureOfTheDay().livedata.observe(viewLifecycleOwner, Observer {url -> downloadImage(url)})
+        super.onViewCreated(view, savedInstanceState)
+
     }
 
     private fun downloadImage(url:String){
@@ -35,9 +35,8 @@ class FragmentPictureOfTheDay() : Fragment() {
                 .with(this)
                 .load(url)
                 .centerCrop()
-                .placeholder(R.drawable.ic_launcher_background)
+                .placeholder(R.drawable.renew)
                 .into(binding.imageView)
-
     }
 
     companion object {

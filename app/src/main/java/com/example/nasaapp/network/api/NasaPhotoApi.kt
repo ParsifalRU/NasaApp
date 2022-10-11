@@ -1,7 +1,7 @@
 package com.example.nasaapp.network.api
 
 import com.example.nasaapp.network.models.ModelPictOfTheDay
-import com.example.nasaapp.network.models.RoverModel
+import com.example.nasaapp.network.models.PhotosVO
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import io.reactivex.rxjava3.core.Observable
 import okhttp3.OkHttpClient
@@ -70,7 +70,7 @@ interface NasaPhotoApi {
 
         @Query("api_key")
         APIKey: String = API_KEY
-    ): Observable<List<RoverModel>>
+    ): Observable<List<PhotosVO>>
 
     @GET(CURIOSITY_ROVER)
     fun getCuriosityMarsPhotosFromEarthDate(
@@ -85,7 +85,7 @@ interface NasaPhotoApi {
 
         @Query("api_key")
         APIKey: String = API_KEY
-    ): Observable<List<RoverModel>>
+    ): Observable<List<PhotosVO>>
 
 
     @GET(OPPORTUNITY_ROVER)
@@ -101,7 +101,7 @@ interface NasaPhotoApi {
 
         @Query("api_key")
         APIKey: String = API_KEY
-    ): Observable<List<RoverModel>>
+    ): Observable<List<PhotosVO>>
 
     @GET(OPPORTUNITY_ROVER)
     fun getOpportunityMarsPhotosFromMarsSol(
@@ -116,7 +116,7 @@ interface NasaPhotoApi {
 
         @Query("api_key")
         APIKey: String = API_KEY
-    ): Observable<List<RoverModel>>
+    ): Observable<List<PhotosVO>>
 
     @GET(SPIRIT_ROVER)
     fun getSpiritMarsPhotosFromMarsSol(
@@ -131,7 +131,7 @@ interface NasaPhotoApi {
 
         @Query("api_key")
         APIKey: String = API_KEY
-    ): Observable<List<RoverModel>>
+    ): Observable<List<PhotosVO>>
 
     @GET(SPIRIT_ROVER)
     fun getSpiritMarsPhotosFromEarthDate(
@@ -149,7 +149,7 @@ interface NasaPhotoApi {
 
         @Query("api_key")
         APIKey: String = API_KEY
-    ): Observable<List<RoverModel>>
+    ): Observable<List<PhotosVO>>
 
     @GET(SPIRIT_ROVER)
     fun getSpiritMarsPhotosFromEarthDate(
@@ -164,7 +164,7 @@ interface NasaPhotoApi {
 
         @Query("api_key")
         APIKey: String = API_KEY
-    ): Observable<List<RoverModel>>
+    ): Observable<List<PhotosVO>>
 
     @GET(CURIOSITY_ROVER)
     fun getLastMarsPhotos(
@@ -176,7 +176,7 @@ interface NasaPhotoApi {
 
         @Query("api_key")
         APIKey: String = API_KEY
-    ): Observable<List<RoverModel>>
+    ): Observable<PhotosVO>
 
 }
 

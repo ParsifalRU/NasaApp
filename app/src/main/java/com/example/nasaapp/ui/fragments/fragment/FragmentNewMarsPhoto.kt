@@ -25,8 +25,12 @@ class FragmentNewMarsPhoto : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setVerticalRecyclerView()
+        ViewModelNewPhoto().livedata.observe(viewLifecycleOwner, Observer { id -> takeId(id)})
         super.onViewCreated(view, savedInstanceState)
-        ViewModelNewPhoto().livedata.observe(viewLifecycleOwner, Observer { id -> Log.d("TagData", id)})
+    }
+
+    fun takeId(id:String){
+        Log.d("TagData", id)
     }
 
 private fun setVerticalRecyclerView(){

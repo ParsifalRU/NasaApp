@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Ivan/AndroidStudioProjects/NasaApp/app/src/main/res/drawable/renew.xml" value="0.158" />
         <entry key="..\:/Users/Ivan/AndroidStudioProjects/NasaApp/app/src/main/res/layout/activity_main.xml" value="0.42238946378174974" />
         <entry key="..\:/Users/Ivan/AndroidStudioProjects/NasaApp/app/src/main/res/layout/fill_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Ivan/AndroidStudioProjects/NasaApp/app/src/main/res/layout/fragment_favorite_photo.xml" value="0.36666666666666664" />
