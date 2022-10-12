@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.nasaapp.ui.fragments.fragment.FragmentMain
+import com.example.nasaapp.ui.fragments.view_model.ViewModelNewPhoto
+import com.example.nasaapp.ui.fragments.view_model.ViewModelPictureOfTheDay
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +20,8 @@ class MainActivity : AppCompatActivity() {
         ft.add(com.example.nasaapp.R.id.fragment1, frag2)
         ft.commit()
 
-
+        ViewModelNewPhoto()
+        ViewModelPictureOfTheDay()
 
        hideActionBar()
 

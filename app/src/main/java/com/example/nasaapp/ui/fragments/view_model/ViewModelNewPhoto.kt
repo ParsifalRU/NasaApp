@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.nasaapp.network.api.retrofitCreated
+import com.example.nasaapp.ui.adapters.NewMarsPhotoAdapter
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 
@@ -22,8 +23,13 @@ class ViewModelNewPhoto: ViewModel() {
                 .subscribe({
 
                     val response = it to arrayOf(String)
-                    Log.d("TAG", " getNewPhoto ${response.toString()}")
-                    livedata.value = response.first.photos[0].id.toString()
+
+                    Log.d("TAG", " getNewPhoto ${response}")
+                    livedata.value = response.toString()
+                    /*NewMarsPhotoAdapter(it)*/
+                    Log.d("TAG", " getNewPhoto ${response.first.photos.component1()}")
+
+                    NewMarsPhotoAdapter().takeResponse2(it)
 
                 }, {
                     Log.e("Tag", it.message.toString())
