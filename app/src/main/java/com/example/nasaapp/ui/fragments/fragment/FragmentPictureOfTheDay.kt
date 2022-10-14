@@ -27,7 +27,6 @@ class FragmentPictureOfTheDay() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ViewModelPictureOfTheDay().livedata.observe(viewLifecycleOwner, Observer {url -> downloadImage(url)})
         super.onViewCreated(view, savedInstanceState)
-
     }
 
     private fun downloadImage(url:String){

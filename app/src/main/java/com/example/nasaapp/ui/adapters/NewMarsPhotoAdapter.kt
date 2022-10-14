@@ -12,7 +12,9 @@ import com.example.nasaapp.network.models.PhotosVO
 
 
 class NewMarsPhotoAdapter: RecyclerView.Adapter<NewMarsPhotoAdapter.PhotoHolder>() {
-    lateinit var response1: PhotosVO
+
+    var response2 : PhotosVO? = null
+    /*lateinit var url: String*/
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): PhotoHolder {
         val view = LayoutInflater.from(viewGroup.context)
@@ -21,9 +23,9 @@ class NewMarsPhotoAdapter: RecyclerView.Adapter<NewMarsPhotoAdapter.PhotoHolder>
     }
 
     override fun onBindViewHolder(holder: PhotoHolder, position: Int) {
-        val url = response1.photos[position].img_src
-        Log.d("TAG", "URL = ${response1.photos[position].img_src}")
-        downloadImage(holder.itemView, holder.itemImage, url)
+      /*  var url = response.photos[position].img_src
+        Log.d("TAG", "URL = ${response.photos[position].img_src}")*/
+        /*downloadImage(holder.itemView, holder.itemImage, url)*/
 
     }
 
@@ -32,12 +34,13 @@ class NewMarsPhotoAdapter: RecyclerView.Adapter<NewMarsPhotoAdapter.PhotoHolder>
     }
 
     override fun getItemCount(): Int {
-        return itemCount
+        return 12
     }
 
-    fun takeResponse2(response:PhotosVO){
+    fun takeResponse2(response: PhotosVO): PhotosVO {
         Log.d("TAG", "Adapter response ${response}" )
-        response1 = response
+        response2 = response
+        return response
     }
 
     private fun downloadImage(view: View, imageView: ImageView, url: String){

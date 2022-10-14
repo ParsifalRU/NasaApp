@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.nasaapp.databinding.FragmentMainBinding
 
-
 class FragmentMain : Fragment() {
     lateinit var binding: FragmentMainBinding
 

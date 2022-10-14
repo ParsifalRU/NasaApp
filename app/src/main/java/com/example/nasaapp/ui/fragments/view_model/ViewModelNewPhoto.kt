@@ -11,8 +11,9 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 class ViewModelNewPhoto: ViewModel() {
 
    var livedata = MutableLiveData<String>()
+  /* lateinit var response2: PhotosVO*/
 
-   init {
+    init {
         getNewPhotos()
     }
 
@@ -26,7 +27,6 @@ class ViewModelNewPhoto: ViewModel() {
 
                     Log.d("TAG", " getNewPhoto ${response}")
                     livedata.value = response.toString()
-                    /*NewMarsPhotoAdapter(it)*/
                     Log.d("TAG", " getNewPhoto ${response.first.photos.component1()}")
 
                     NewMarsPhotoAdapter().takeResponse2(it)
@@ -36,5 +36,5 @@ class ViewModelNewPhoto: ViewModel() {
                     Log.d("TAG", "Exception getNewPhoto ${livedata.value}")
                 }
                 )
-            }
+   }
 }
