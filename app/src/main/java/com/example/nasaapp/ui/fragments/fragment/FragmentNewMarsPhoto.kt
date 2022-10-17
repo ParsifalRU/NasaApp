@@ -26,8 +26,8 @@ class FragmentNewMarsPhoto() : Fragment(){
     }
 
 private fun setVerticalRecyclerView(){
-    binding.vertRecyclerView.layoutManager = GridLayoutManager(Application().baseContext, 3)
-    binding.vertRecyclerView.adapter = adapter
+        binding.vertRecyclerView.layoutManager = GridLayoutManager(Application().baseContext, 3)
+        binding.vertRecyclerView.adapter = adapter
 }
 
     companion object {

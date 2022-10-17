@@ -11,10 +11,9 @@ import com.example.nasaapp.R
 import com.example.nasaapp.network.models.PhotosVO
 
 
-class NewMarsPhotoAdapter: RecyclerView.Adapter<NewMarsPhotoAdapter.PhotoHolder>() {
+class NewMarsPhotoAdapter(): RecyclerView.Adapter<NewMarsPhotoAdapter.PhotoHolder>() {
 
     var response2 : PhotosVO? = null
-    /*lateinit var url: String*/
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): PhotoHolder {
         val view = LayoutInflater.from(viewGroup.context)
@@ -23,10 +22,14 @@ class NewMarsPhotoAdapter: RecyclerView.Adapter<NewMarsPhotoAdapter.PhotoHolder>
     }
 
     override fun onBindViewHolder(holder: PhotoHolder, position: Int) {
-        Log.d("TAG", "onBindViewHolder ${response2}")
+        Log.d("TAG", "onBindViewHolder ${response2?.photos?.get(position)}")
+
+
       /*  var url = response.photos[position].img_src
         Log.d("TAG", "URL = ${response.photos[position].img_src}")*/
-        downloadImage(holder.itemView, holder.itemImage/*, url*/)
+
+        downloadImage(holder.itemView, holder.itemImage, position)
+
 
     }
 
@@ -44,10 +47,16 @@ class NewMarsPhotoAdapter: RecyclerView.Adapter<NewMarsPhotoAdapter.PhotoHolder>
         return response
     }
 
-    private fun downloadImage(view: View, imageView: ImageView/*, url: String*/){
+    private fun downloadImage(view: View, imageView: ImageView, position: Int){
+        var url:String
+        when(response2 == null){
+            false -> url = response2!!.photos[position].img_src
+            else -> {url = "https://apod.nasa.gov/apod/image/2111/MACSJ0138_Hubble_1080.jpg"}
+        }
+
         Glide
             .with(view)
-            .load("http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/01000/opgs/edr/fcam/FLB_486265257EDR_F0481570FHAZ00323M_.JPG")
+            .load(url)
             .centerCrop()
             .placeholder(R.drawable.renew)
             .into(imageView)

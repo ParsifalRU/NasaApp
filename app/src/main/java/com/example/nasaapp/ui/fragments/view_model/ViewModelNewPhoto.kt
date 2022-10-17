@@ -25,10 +25,16 @@ class ViewModelNewPhoto: ViewModel() {
 
                     val response = it to arrayOf(String)
                     Log.d("TAG", " getNewPhoto ${response}")
-                    livedata.value = response.toString()
+                    livedata.value = "READY"
+
                     Log.d("TAG", " getNewPhoto ${response.first.photos.component1()}")
 
-                    NewMarsPhotoAdapter().takeResponse2(it)
+
+                     NewMarsPhotoAdapter().takeResponse2(it)
+
+
+
+
 
 
                     /*FragmentNewMarsPhoto(it)*/
