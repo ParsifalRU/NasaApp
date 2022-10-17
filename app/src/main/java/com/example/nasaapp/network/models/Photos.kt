@@ -21,10 +21,10 @@ data class MarsPhotoVO(
         val status: String
     )
 
-    data class CameraVO(
-        val id: Int,
-        val name: String ,
-        val full_name: String
-    )
+        data class CameraVO(
+            val id: Int,
+            val name: String ,
+            val full_name: String
+        )
 
 

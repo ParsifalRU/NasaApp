@@ -2,6 +2,7 @@ package com.example.nasaapp.ui.fragments.fragment
 
 import android.app.Application
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.nasaapp.databinding.MarsPhotoNewBinding
 import com.example.nasaapp.ui.adapters.NewMarsPhotoAdapter
 
-class FragmentNewMarsPhoto : Fragment(){
+class FragmentNewMarsPhoto() : Fragment(){
 
     val adapter = NewMarsPhotoAdapter()
     lateinit var binding: MarsPhotoNewBinding
@@ -31,7 +32,12 @@ private fun setVerticalRecyclerView(){
 
     companion object {
         @JvmStatic
-        fun newInstance() = FragmentNewMarsPhoto()
+        fun newInstance(arg1: Bundle?): FragmentNewMarsPhoto {
+            val fragmentNewMarsPhoto = FragmentNewMarsPhoto()
+            fragmentNewMarsPhoto.arguments = arg1
+            Log.d("TAG2","arg from fragment${fragmentNewMarsPhoto.arguments?.get("response")}")
+            return fragmentNewMarsPhoto
+        }
     }
 
 }

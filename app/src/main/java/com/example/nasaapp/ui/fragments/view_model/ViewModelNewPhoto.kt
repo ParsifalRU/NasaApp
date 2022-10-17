@@ -24,12 +24,18 @@ class ViewModelNewPhoto: ViewModel() {
                 .subscribe({
 
                     val response = it to arrayOf(String)
-
                     Log.d("TAG", " getNewPhoto ${response}")
                     livedata.value = response.toString()
                     Log.d("TAG", " getNewPhoto ${response.first.photos.component1()}")
 
                     NewMarsPhotoAdapter().takeResponse2(it)
+
+
+                    /*FragmentNewMarsPhoto(it)*/
+
+                  /*val bundle = Bundle()
+                    bundle.putString("response", it.photos)
+                    FragmentNewMarsPhoto.newInstance(arg1 = bundle)*/
 
                 }, {
                     Log.e("Tag", it.message.toString())
@@ -38,3 +44,7 @@ class ViewModelNewPhoto: ViewModel() {
                 )
    }
 }
+
+
+
+
