@@ -8,12 +8,11 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.nasaapp.R
-import com.example.nasaapp.network.models.PhotosVO
+import com.example.nasaapp.network.models.MarsPhotoVO
 
 
-class NewMarsPhotoAdapter(): RecyclerView.Adapter<NewMarsPhotoAdapter.PhotoHolder>() {
-
-    var response2 : PhotosVO? = null
+class NewMarsPhotoAdapter(val testResponse: List<MarsPhotoVO>?): RecyclerView.Adapter<NewMarsPhotoAdapter.PhotoHolder>() {
+    var response2 : List<MarsPhotoVO>? = null
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): PhotoHolder {
         val view = LayoutInflater.from(viewGroup.context)
@@ -22,15 +21,8 @@ class NewMarsPhotoAdapter(): RecyclerView.Adapter<NewMarsPhotoAdapter.PhotoHolde
     }
 
     override fun onBindViewHolder(holder: PhotoHolder, position: Int) {
-        Log.d("TAG", "onBindViewHolder ${response2?.photos?.get(position)}")
-
-
-      /*  var url = response.photos[position].img_src
-        Log.d("TAG", "URL = ${response.photos[position].img_src}")*/
-
-        downloadImage(holder.itemView, holder.itemImage, position)
-
-
+        Log.d("TAG", "onBindViewHolder ${testResponse}")
+        downloadImage(holder.itemView, holder.itemImage, position, testResponse)
     }
 
     class PhotoHolder(view: View):RecyclerView.ViewHolder(view) {
@@ -38,21 +30,30 @@ class NewMarsPhotoAdapter(): RecyclerView.Adapter<NewMarsPhotoAdapter.PhotoHolde
     }
 
     override fun getItemCount(): Int {
-        return 12
+        var b: Int
+        if (testResponse == null){
+            b = 12
+        } else b = testResponse!!.size
+        return /*response2.size*/ b
     }
 
-    fun takeResponse2(response: PhotosVO): PhotosVO {
-        Log.d("TAG", "Adapter response ${response}" )
+
+/*   fun takeResponse2(response: PhotosVO) {
+        Log.d("TAG", "Adapter response $response" )
         response2 = response
-        return response
-    }
+        Log.d("TAG", "Adapter response $response2" )
+    }*/
 
-    private fun downloadImage(view: View, imageView: ImageView, position: Int){
-        var url:String
-        when(response2 == null){
-            false -> url = response2!!.photos[position].img_src
-            else -> {url = "https://apod.nasa.gov/apod/image/2111/MACSJ0138_Hubble_1080.jpg"}
-        }
+    private fun downloadImage(view: View, imageView: ImageView, position: Int, response: List<MarsPhotoVO>?){
+        val url:String
+
+        Log.d("TAG3", testResponse?.size.toString())
+
+       Log.d("TAG", "Adapter fownlImage $testResponse")
+       /* url = response2[position].img_src*/
+        if (response == null){
+            url ="https://i.gifer.com/74H8.gif"
+        } else url = testResponse?.get(position)!!.img_src
 
         Glide
             .with(view)

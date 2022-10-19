@@ -26,7 +26,7 @@ class ViewModelPictureOfTheDay() : ViewModel() {
                     livedata.value = response.first[0].url
 
                 }, {
-                    Log.d("TAG", "Exception GetMarsPhoto ${livedata.value} ")
+                    Log.d("TAG2", "Exception GetMarsPhoto ${livedata.value} ")
                 }
                 )
     }
